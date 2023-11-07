@@ -29,6 +29,6 @@ public class DataProvider : MonoBehaviour
     [ContextMenu("Test report")]
     private void TestReport()
     {
-        dataConsumer.ReportPersonData(0);
+        dataConsumer.ReportPersonData(0, () => GetName(0), () => GetAge(0), () => GetPostalCode(0));
     }
 }

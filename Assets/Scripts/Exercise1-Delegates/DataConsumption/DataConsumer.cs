@@ -5,22 +5,26 @@ using UnityEngine;
 
 public class DataConsumer : MonoBehaviour
 {
-    //TODO: Complete this method
-    public void ReportPersonData(int personId
+    //TODO: Complete this method - HECHO
+    public void ReportPersonData(int personId,
                                 /*, Receive the method getName()*/
+                                Func<string> getName,
                                 /*, Receive the method getAge()*/
-                                /*, Receive the method GetPostalCode*/)
+                                Func<int> getAge,
+                                /*, Receive the method GetPostalCode*/
+                                Func<short> getPostalCode)
     {
+        
         string name = string.Empty;
         int age = -1;
         short postalCode = -1;
-        
-        /*
-         * name = getName(personId);
-         * age = getAge(personId);
-         * postalCode = getPostalCode(personId);
-         */
-        
+
+
+        name = getName();
+        age = getAge();
+        postalCode = getPostalCode();
+
+
         var dataReport = string.Format("name: {0}, age: {1}, postal code: {2}", name, age, postalCode);
         Debug.Log($"{name}: Giving report on Data. {dataReport}");
     }
